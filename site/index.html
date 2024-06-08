@@ -10,7 +10,7 @@
       
       
       
-        <link rel="next" href="1-intro/">
+        <link rel="next" href="introduction_to_quantum_computing/">
       
       
       <link rel="icon" href="assets/images/favicon.png">
@@ -41,6 +41,8 @@
       
     
     
+      <link rel="stylesheet" href="extra.css">
+    
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -70,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction-to-quantum-computing" class="md-skip">
+        <a href="#quantum-computing" class="md-skip">
           Skip to content
         </a>
       
@@ -205,6 +207,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -233,6 +237,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -247,37 +253,90 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Introduction to Quantum Computing">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#qubit" class="md-nav__link">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-quantum-mechanics" class="md-nav__link">
     <span class="md-ellipsis">
-      Qubit
+      Basic Quantum Mechanics
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#quantum-circuit" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#quantum-states-and-qubits" class="md-nav__link">
     <span class="md-ellipsis">
-      Quantum Circuit
+      Quantum States and Qubits
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#quantum-algorithms" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#quantum-entanglement" class="md-nav__link">
     <span class="md-ellipsis">
-      Quantum Algorithms
+      Quantum Entanglement
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
+  <a href="#quantum-superposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Superposition
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-quantum-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction to Quantum Algorithms
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shors-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shor's Algorithm
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grovers-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grover's Algorithm
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-fourier-transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Fourier Transform
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Simulation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#quantum-machine-learning" class="md-nav__link">
     <span class="md-ellipsis">
       Quantum Machine Learning
@@ -285,9 +344,265 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-annealing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Annealing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variational-quantum-eigensolver" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variational Quantum Eigensolver
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-approximate-optimization-algorithm-qaoa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Approximate Optimization Algorithm (QAOA)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-phase-estimation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Phase Estimation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amplitude-amplification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amplitude Amplification
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-walks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Walks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-neural-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Neural Networks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-support-vector-machines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Support Vector Machines
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-generative-adversarial-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Generative Adversarial Networks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-boltzmann-machines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Boltzmann Machines
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-clustering-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Clustering Algorithms
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-principal-component-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Principal Component Analysis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-gate-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Gate Model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-circuit-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Circuit Model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adiabatic-quantum-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adiabatic Quantum Computing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topological-quantum-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Topological Quantum Computing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-information-theory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Information Theory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-cryptography" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Cryptography
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-error-correction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Error Correction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-entropy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Entropy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-computing-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Computing Applications
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Communication
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-sensing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Sensing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-metrology" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Metrology
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-programming-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Programming Languages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-software-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Software Frameworks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-simulators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Simulators
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-cloud-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Cloud Computing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-development-kits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Development Kits
+    </span>
+  </a>
   
 </li>
       
@@ -306,11 +621,11 @@
   
   
     <li class="md-nav__item">
-      <a href="1-intro/" class="md-nav__link">
+      <a href="introduction_to_quantum_computing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Introduction
+    Introduction to Quantum Computing
   </span>
   
 
@@ -326,11 +641,11 @@
   
   
     <li class="md-nav__item">
-      <a href="2-qalgos/" class="md-nav__link">
+      <a href="basic_quantum_mechanics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Quantum Algorithms
+    Basic Quantum Mechanics
   </span>
   
 
@@ -346,11 +661,11 @@
   
   
     <li class="md-nav__item">
-      <a href="3-vqe/" class="md-nav__link">
+      <a href="quantum_states_and_qubits/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    VQE
+    Quantum States and Qubits
   </span>
   
 
@@ -366,11 +681,11 @@
   
   
     <li class="md-nav__item">
-      <a href="4-qaoa/" class="md-nav__link">
+      <a href="quantum_entanglement/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    QAOA
+    Quantum Entanglement
   </span>
   
 
@@ -386,11 +701,11 @@
   
   
     <li class="md-nav__item">
-      <a href="5-qgan/" class="md-nav__link">
+      <a href="quantum_superposition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    QGAN
+    Quantum Superposition
   </span>
   
 
@@ -406,11 +721,691 @@
   
   
     <li class="md-nav__item">
-      <a href="6-qnn/" class="md-nav__link">
+      <a href="introduction_to_quantum_algorithms/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    QNN
+    Introduction to Quantum Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="shors_algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shor's Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="grovers_algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Grover's Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_fourier_transform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Fourier Transform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_simulation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Simulation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_machine_learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Machine Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_annealing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Annealing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="variational_quantum_eigensolver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Variational Quantum Eigensolver
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_approximate_optimization_algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Approximate Optimization Algorithm (QAOA)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_phase_estimation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Phase Estimation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="amplitude_amplification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Amplitude Amplification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_walks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Walks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_neural_networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Neural Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_support_vector_machines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Support Vector Machines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_generative_adversarial_networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Generative Adversarial Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_boltzmann_machines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Boltzmann Machines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_clustering_algorithms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Clustering Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_principal_component_analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Principal Component Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_gate_model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Gate Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_circuit_model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Circuit Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="adiabatic_quantum_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adiabatic Quantum Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="topological_quantum_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Topological Quantum Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_information_theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Information Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_cryptography/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Cryptography
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_error_correction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Error Correction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_entropy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Entropy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_computing_applications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Computing Applications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_communication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Communication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_sensing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Sensing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_metrology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Metrology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_programming_languages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Programming Languages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_software_frameworks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Software Frameworks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_simulators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Simulators
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_cloud_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Cloud Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quantum_development_kits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Development Kits
   </span>
   
 
@@ -436,6 +1431,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -450,37 +1447,90 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Introduction to Quantum Computing">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#qubit" class="md-nav__link">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-quantum-mechanics" class="md-nav__link">
     <span class="md-ellipsis">
-      Qubit
+      Basic Quantum Mechanics
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#quantum-circuit" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#quantum-states-and-qubits" class="md-nav__link">
     <span class="md-ellipsis">
-      Quantum Circuit
+      Quantum States and Qubits
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#quantum-algorithms" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#quantum-entanglement" class="md-nav__link">
     <span class="md-ellipsis">
-      Quantum Algorithms
+      Quantum Entanglement
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
+  <a href="#quantum-superposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Superposition
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-quantum-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction to Quantum Algorithms
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shors-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shor's Algorithm
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grovers-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grover's Algorithm
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-fourier-transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Fourier Transform
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Simulation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#quantum-machine-learning" class="md-nav__link">
     <span class="md-ellipsis">
       Quantum Machine Learning
@@ -488,9 +1538,265 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-annealing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Annealing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variational-quantum-eigensolver" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variational Quantum Eigensolver
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-approximate-optimization-algorithm-qaoa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Approximate Optimization Algorithm (QAOA)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-phase-estimation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Phase Estimation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amplitude-amplification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amplitude Amplification
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-walks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Walks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-neural-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Neural Networks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-support-vector-machines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Support Vector Machines
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-generative-adversarial-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Generative Adversarial Networks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-boltzmann-machines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Boltzmann Machines
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-clustering-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Clustering Algorithms
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-principal-component-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Principal Component Analysis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-gate-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Gate Model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-circuit-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Circuit Model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adiabatic-quantum-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adiabatic Quantum Computing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topological-quantum-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Topological Quantum Computing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-information-theory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Information Theory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-cryptography" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Cryptography
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-error-correction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Error Correction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-entropy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Entropy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-computing-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Computing Applications
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Communication
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-sensing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Sensing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-metrology" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Metrology
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-programming-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Programming Languages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-software-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Software Frameworks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-simulators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Simulators
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-cloud-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Cloud Computing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-development-kits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantum Development Kits
+    </span>
+  </a>
   
 </li>
       
@@ -509,18 +1815,88 @@
                   
 
 
-  <h1>Home</h1>
-
+<h1 id="quantum-computing">Quantum Computing</h1>
+<p><img alt="img" src="img/qc.png" /></p>
 <h3 id="introduction-to-quantum-computing">Introduction to Quantum Computing</h3>
-<p>Quantum computing is an advanced field of computing based on the principles of quantum mechanics, which is the fundamental theory in physics that describes nature at the smallest scales of energy levels of atoms and subatomic particles. Unlike classical computers, which use bits to process information as 0s and 1s, quantum computers use quantum bits or qubits, which can represent and store information in a quantum state.</p>
-<h4 id="qubit">Qubit</h4>
-<p>A qubit is the basic unit of quantum information. Unlike a classical bit that can be either 0 or 1, a qubit can exist simultaneously in a superposition of both 0 and 1 states. This property allows quantum computers to process a vast amount of information simultaneously. Qubits can be represented as a vector in a two-dimensional complex Hilbert space, often visualized using the Bloch sphere.</p>
-<h4 id="quantum-circuit">Quantum Circuit</h4>
-<p>A quantum circuit is a model for quantum computation where a computation is a sequence of quantum gates, which are the quantum analog of classical logic gates. Quantum gates manipulate qubits and are represented as unitary matrices. A quantum circuit can perform complex operations by combining multiple quantum gates, and it can be visualized using a circuit diagram where qubits are represented by horizontal lines and gates by various symbols along these lines.</p>
-<h4 id="quantum-algorithms">Quantum Algorithms</h4>
-<p>Quantum algorithms are procedures that run on a quantum computer to solve problems more efficiently than classical algorithms. Famous quantum algorithms include Shor's algorithm for factoring large numbers, which has significant implications for cryptography, and Grover's algorithm for searching unsorted databases, which offers a quadratic speedup over classical algorithms. These algorithms exploit quantum phenomena such as superposition and entanglement to perform computations more efficiently.</p>
-<h4 id="quantum-machine-learning">Quantum Machine Learning</h4>
-<p>Quantum machine learning (QML) is an interdisciplinary field combining quantum computing and machine learning. It leverages the principles of quantum mechanics to enhance classical machine learning algorithms. QML aims to achieve faster processing and improved performance for machine learning tasks such as classification, clustering, and optimization. Examples of QML techniques include quantum support vector machines, quantum neural networks, and variational quantum algorithms. These techniques hold the potential to revolutionize fields that rely on large-scale data analysis and complex computations.</p>
+<p>Quantum Computing is a field of computing focused on developing computer technology based on the principles of quantum theory, which explains the behavior of energy and material on the atomic and subatomic levels.</p>
+<h3 id="basic-quantum-mechanics">Basic Quantum Mechanics</h3>
+<p>Basic Quantum Mechanics provides the fundamental principles that underlie quantum computing, including concepts like wave-particle duality, superposition, and entanglement.</p>
+<h3 id="quantum-states-and-qubits">Quantum States and Qubits</h3>
+<p>Quantum States and Qubits are the basic units of quantum information. Qubits, unlike classical bits, can exist in multiple states simultaneously due to superposition.</p>
+<h3 id="quantum-entanglement">Quantum Entanglement</h3>
+<p>Quantum Entanglement is a phenomenon where quantum states of two or more objects are interconnected such that the state of one object can instantly influence the state of another, regardless of distance.</p>
+<h3 id="quantum-superposition">Quantum Superposition</h3>
+<p>Quantum Superposition refers to a quantum system's ability to be in multiple states at once until it is measured, a fundamental principle enabling the power of quantum computers.</p>
+<h3 id="introduction-to-quantum-algorithms">Introduction to Quantum Algorithms</h3>
+<p>Introduction to Quantum Algorithms covers the basics of algorithms designed for quantum computers, highlighting how they differ from classical algorithms in terms of complexity and performance.</p>
+<h3 id="shors-algorithm">Shor's Algorithm</h3>
+<p>Shor's Algorithm is a quantum algorithm for integer factorization, which efficiently solves a problem that is intractable for classical computers. It has significant implications for cryptography.</p>
+<h3 id="grovers-algorithm">Grover's Algorithm</h3>
+<p>Grover's Algorithm is a quantum algorithm that provides a quadratic speedup for unstructured search problems. It is one of the most well-known quantum algorithms.</p>
+<h3 id="quantum-fourier-transform">Quantum Fourier Transform</h3>
+<p>Quantum Fourier Transform is a linear transformation on quantum bits and is the quantum analogue of the discrete Fourier transform. It is a key component in many quantum algorithms.</p>
+<h3 id="quantum-simulation">Quantum Simulation</h3>
+<p>Quantum Simulation uses quantum computers to simulate quantum systems, which is expected to provide insights into complex quantum phenomena and advance fields like materials science and chemistry.</p>
+<h3 id="quantum-machine-learning">Quantum Machine Learning</h3>
+<p>Quantum Machine Learning combines quantum computing with machine learning algorithms to potentially achieve significant speedups and improvements in performance over classical methods.</p>
+<h3 id="quantum-annealing">Quantum Annealing</h3>
+<p>Quantum Annealing is a metaheuristic for solving optimization problems using quantum mechanics. It is used by quantum annealers like D-Wave to find the global minimum of a function.</p>
+<h3 id="variational-quantum-eigensolver">Variational Quantum Eigensolver</h3>
+<p>Variational Quantum Eigensolver (VQE) is a hybrid quantum-classical algorithm used to find the ground state energy of a quantum system. It is particularly useful in quantum chemistry and materials science.</p>
+<h3 id="quantum-approximate-optimization-algorithm-qaoa">Quantum Approximate Optimization Algorithm (QAOA)</h3>
+<p>Quantum Approximate Optimization Algorithm (QAOA) is designed to solve combinatorial optimization problems. It uses a parameterized quantum circuit and classical optimization techniques to find approximate solutions.</p>
+<h3 id="quantum-phase-estimation">Quantum Phase Estimation</h3>
+<p>Quantum Phase Estimation is a fundamental algorithm used to estimate the phase (or eigenvalue) of an eigenvector of a unitary operator. It is a key component in many quantum algorithms, including Shor's algorithm.</p>
+<h3 id="amplitude-amplification">Amplitude Amplification</h3>
+<p>Amplitude Amplification is a generalization of Grover's algorithm that increases the probability amplitude of desired outcomes. It is used to boost the success probability of various quantum algorithms.</p>
+<h3 id="quantum-walks">Quantum Walks</h3>
+<p>Quantum Walks are the quantum analog of classical random walks. They have applications in quantum search algorithms, graph algorithms, and other areas of quantum computation.</p>
+<h3 id="quantum-neural-networks">Quantum Neural Networks</h3>
+<p>Quantum Neural Networks (QNN) are quantum versions of classical neural networks. They leverage quantum computing to enhance learning algorithms and are expected to provide exponential speedups in certain tasks.</p>
+<h3 id="quantum-support-vector-machines">Quantum Support Vector Machines</h3>
+<p>Quantum Support Vector Machines (QSVM) are the quantum counterparts of classical support vector machines. They use quantum computation to enhance classification tasks and can potentially solve problems more efficiently.</p>
+<h3 id="quantum-generative-adversarial-networks">Quantum Generative Adversarial Networks</h3>
+<p>Quantum Generative Adversarial Networks (QGAN) are quantum versions of generative adversarial networks. They use quantum mechanics to improve the training and generation of data distributions.</p>
+<h3 id="quantum-boltzmann-machines">Quantum Boltzmann Machines</h3>
+<p>Quantum Boltzmann Machines are quantum versions of classical Boltzmann machines used for machine learning. They leverage quantum properties to potentially speed up the learning process and handle larger datasets.</p>
+<h3 id="quantum-clustering-algorithms">Quantum Clustering Algorithms</h3>
+<p>Quantum Clustering Algorithms use quantum computation to perform clustering tasks in machine learning. They aim to provide more efficient and accurate clustering of large datasets.</p>
+<h3 id="quantum-principal-component-analysis">Quantum Principal Component Analysis</h3>
+<p>Quantum Principal Component Analysis (QPCA) is a quantum algorithm that performs principal component analysis on quantum data. It is used to reduce the dimensionality of data and identify important features.</p>
+<h3 id="quantum-gate-model">Quantum Gate Model</h3>
+<p>Quantum Gate Model is the standard model for quantum computation, where computation is performed using a sequence of quantum gates, which are reversible transformations on qubits.</p>
+<h3 id="quantum-circuit-model">Quantum Circuit Model</h3>
+<p>Quantum Circuit Model represents quantum computations using quantum circuits, which consist of qubits and quantum gates. It is a widely used framework for designing and analyzing quantum algorithms.</p>
+<h3 id="adiabatic-quantum-computing">Adiabatic Quantum Computing</h3>
+<p>Adiabatic Quantum Computing relies on the adiabatic theorem, which ensures that a quantum system remains in its ground state as its Hamiltonian is slowly varied. It is used for solving optimization problems.</p>
+<h3 id="topological-quantum-computing">Topological Quantum Computing</h3>
+<p>Topological Quantum Computing uses anyons and topological states of matter to perform quantum computations. It is robust against local errors and is a promising approach for fault-tolerant quantum computing.</p>
+<h3 id="quantum-information-theory">Quantum Information Theory</h3>
+<p>Quantum Information Theory studies the storage, transmission, and manipulation of information using quantum systems. It includes concepts like quantum entropy, quantum channels, and quantum error correction.</p>
+<h3 id="quantum-cryptography">Quantum Cryptography</h3>
+<p>Quantum Cryptography uses the principles of quantum mechanics to develop cryptographic protocols that are theoretically secure against any computational attack, such as quantum key distribution (QKD).</p>
+<h3 id="quantum-error-correction">Quantum Error Correction</h3>
+<p>Quantum Error Correction involves methods to protect quantum information against errors due to decoherence and other quantum noise. It is essential for building reliable quantum computers.</p>
+<h3 id="quantum-entropy">Quantum Entropy</h3>
+<p>Quantum Entropy quantifies the uncertainty or randomness of a quantum state. It is a key concept in quantum information theory and has applications in quantum thermodynamics and quantum communications.</p>
+<h3 id="quantum-computing-applications">Quantum Computing Applications</h3>
+<p>Quantum Computing Applications cover a range of fields where quantum computers are expected to have a significant impact, including cryptography, materials science, pharmaceuticals, and complex system simulations.</p>
+<h3 id="quantum-communication">Quantum Communication</h3>
+<p>Quantum Communication uses quantum mechanics to securely transmit information. It includes technologies like quantum key distribution (QKD) and quantum teleportation.</p>
+<h3 id="quantum-sensing">Quantum Sensing</h3>
+<p>Quantum Sensing uses quantum phenomena to measure physical quantities with high precision. Applications include atomic clocks, magnetometers, and gravitational wave detectors.</p>
+<h3 id="quantum-metrology">Quantum Metrology</h3>
+<p>Quantum Metrology applies quantum theory to improve the accuracy of measurements. It leverages quantum entanglement and other phenomena to enhance the precision of sensors and measurement devices.</p>
+<h3 id="quantum-programming-languages">Quantum Programming Languages</h3>
+<p>Quantum Programming Languages are designed for expressing quantum algorithms and controlling quantum computers. Examples include Qiskit, Cirq, and Quipper.</p>
+<h3 id="quantum-software-frameworks">Quantum Software Frameworks</h3>
+<p>Quantum Software Frameworks provide tools and libraries for developing and testing quantum algorithms. They include platforms like IBM Q Experience, Microsoft Q#, and Google's Cirq.</p>
+<h3 id="quantum-simulators">Quantum Simulators</h3>
+<p>Quantum Simulators are classical systems designed to simulate quantum phenomena. They are used to test and develop quantum algorithms and to study quantum systems that are difficult to investigate experimentally.</p>
+<h3 id="quantum-cloud-computing">Quantum Cloud Computing</h3>
+<p>Quantum Cloud Computing provides access to quantum processors over the internet, allowing researchers and developers to run quantum algorithms on real quantum hardware remotely.</p>
+<h3 id="quantum-development-kits">Quantum Development Kits</h3>
+<p>Quantum Development Kits are collections of tools and resources for developing quantum software. They include quantum programming languages, simulators, and libraries for building and testing quantum applications.</p>
 
 
 
@@ -574,7 +1950,9 @@
     
       <script src="assets/javascripts/bundle.081f42fc.min.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="mathjax-config.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
       
     
   </body>

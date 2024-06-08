@@ -1,14 +1,18 @@
-
 site_name: Quantum Computing
 
-
-extra_javascript: 
-    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+extra_javascript:
+  - mathjax-config.js
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js
 
 markdown_extensions:
-    - mdx_math
-    
-
+  - pymdownx.arithmatex:
+      generic: true
+  - codehilite:
+      linenums: false
+      guess_lang: false
+      use_pygments: true
+      noclasses: true
+      pygments_style: manni
 
 theme:
   name: 'material'
@@ -20,35 +24,58 @@ theme:
   titles_only: false
   sticky_navigation: true
   collapse_navigation: true
- 
 
-  
-  
-markdown_extensions:
-  - codehilite:
-      linenums: false
-      guess_lang: false
-      use_pygments: true
-      noclasses: true
-      pygments_style: manni
+extra_css:
+  - extra.css
 
 extra:
   analytics:
     provider: google
     property: UA-156178967-1
-      
+
+
+
 
 
 nav:
 - Home: index.md
-- Introduction : 1-intro.md
-- Quantum Algorithms : 2-qalgos.md
-- VQE : 3-vqe.md
-- QAOA : 4-qaoa.md
-- QGAN: 5-qgan.md
-- QNN: 6-qnn.md
-
- 
- 
- 
- 
+- Introduction to Quantum Computing: introduction_to_quantum_computing.md
+- Basic Quantum Mechanics: basic_quantum_mechanics.md
+- Quantum States and Qubits: quantum_states_and_qubits.md
+- Quantum Entanglement: quantum_entanglement.md
+- Quantum Superposition: quantum_superposition.md
+- Introduction to Quantum Algorithms: introduction_to_quantum_algorithms.md
+- Shor's Algorithm: shors_algorithm.md
+- Grover's Algorithm: grovers_algorithm.md
+- Quantum Fourier Transform: quantum_fourier_transform.md
+- Quantum Simulation: quantum_simulation.md
+- Quantum Machine Learning: quantum_machine_learning.md
+- Quantum Annealing: quantum_annealing.md
+- Variational Quantum Eigensolver: variational_quantum_eigensolver.md
+- Quantum Approximate Optimization Algorithm (QAOA): quantum_approximate_optimization_algorithm.md
+- Quantum Phase Estimation: quantum_phase_estimation.md
+- Amplitude Amplification: amplitude_amplification.md
+- Quantum Walks: quantum_walks.md
+- Quantum Neural Networks: quantum_neural_networks.md
+- Quantum Support Vector Machines: quantum_support_vector_machines.md
+- Quantum Generative Adversarial Networks: quantum_generative_adversarial_networks.md
+- Quantum Boltzmann Machines: quantum_boltzmann_machines.md
+- Quantum Clustering Algorithms: quantum_clustering_algorithms.md
+- Quantum Principal Component Analysis: quantum_principal_component_analysis.md
+- Quantum Gate Model: quantum_gate_model.md
+- Quantum Circuit Model: quantum_circuit_model.md
+- Adiabatic Quantum Computing: adiabatic_quantum_computing.md
+- Topological Quantum Computing: topological_quantum_computing.md
+- Quantum Information Theory: quantum_information_theory.md
+- Quantum Cryptography: quantum_cryptography.md
+- Quantum Error Correction: quantum_error_correction.md
+- Quantum Entropy: quantum_entropy.md
+- Quantum Computing Applications: quantum_computing_applications.md
+- Quantum Communication: quantum_communication.md
+- Quantum Sensing: quantum_sensing.md
+- Quantum Metrology: quantum_metrology.md
+- Quantum Programming Languages: quantum_programming_languages.md
+- Quantum Software Frameworks: quantum_software_frameworks.md
+- Quantum Simulators: quantum_simulators.md
+- Quantum Cloud Computing: quantum_cloud_computing.md
+- Quantum Development Kits: quantum_development_kits.md
