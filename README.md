@@ -1,2 +1,2 @@
 
-### How to Machine Learning - by TEACH ME CODES
+### Quantum Computing - by TEACH ME CODES
