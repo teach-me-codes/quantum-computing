@@ -1,0 +1,4192 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A comprehensive guide to learning quantum computing and quantum algorithms.">
+      
+      
+        <meta name="author" content="Teach Me Codes">
+      
+      
+        <link rel="canonical" href="https://learning.teachme.codes/chapters/quantum_error_correction/">
+      
+      
+        <link rel="prev" href="../quantum_cryptography/">
+      
+      
+        <link rel="next" href="../quantum_entropy/">
+      
+      
+      <link rel="icon" href="../../assets/fevicon.ico">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.25">
+    
+    
+      
+        <title>Quantum Error Correction - Learning Quantum Computing</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-ECS7B3X8JM"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-ECS7B3X8JM",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-ECS7B3X8JM",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#quantum-error-correction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Learning Quantum Computing" class="md-header__button md-logo" aria-label="Learning Quantum Computing" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learning Quantum Computing
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Quantum Error Correction
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/teach-me-codes/quantum-computing" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../chapters/" class="md-tabs__link">
+          
+  
+    
+  
+  Book Chapters
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../qnas/qnas/" class="md-tabs__link">
+          
+  
+    
+  
+  Questions & Answers
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cheats/cheats/" class="md-tabs__link">
+          
+  
+    
+  
+  Cheat Sheets
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../projects/projects/" class="md-tabs__link">
+          
+  
+    
+  
+  Projects
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../refs/refs/" class="md-tabs__link">
+          
+  
+    
+  
+  References
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learning Quantum Computing" class="md-nav__button md-logo" aria-label="Learning Quantum Computing" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Learning Quantum Computing
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/teach-me-codes/quantum-computing" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Book Chapters
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Book Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Book Chapters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction_to_quantum_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Quantum Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic_quantum_mechanics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Quantum Mechanics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_states_and_qubits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum States and Qubits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_superposition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Superposition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_entanglement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Entanglement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_gate_model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Gate Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_circuit_model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Circuit Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adiabatic_quantum_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adiabatic Quantum Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topological_quantum_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Topological Quantum Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction_to_quantum_algorithms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Quantum Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_fourier_transform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Fourier Transform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shors_algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shor's Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grovers_algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Grover's Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_phase_estimation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Phase Estimation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_simulation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Simulation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_annealing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Annealing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variational_quantum_eigensolver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Variational Quantum Eigensolver
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_approximate_optimization_algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Approximate Optimization Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../amplitude_amplification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Amplitude Amplification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_walks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Walks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_machine_learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Machine Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_neural_networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Neural Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_support_vector_machines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Support Vector Machines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_generative_adversarial_networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Generative Adversarial Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_boltzmann_machines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Boltzmann Machines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_clustering_algorithms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Clustering Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_principal_component_analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Principal Component Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_information_theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Information Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_cryptography/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Cryptography
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Quantum Error Correction
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Error Correction
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-overview-of-quantum-error-correction" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Overview of Quantum Error Correction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-quantum-error-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Quantum Error Models
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_entropy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Entropy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_computing_applications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Computing Applications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_communication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Communication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_sensing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Sensing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_metrology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Metrology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_programming_languages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Programming Languages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_software_frameworks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Software Frameworks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_simulators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Simulators
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_cloud_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Cloud Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_development_kits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Development Kits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Questions & Answers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Questions & Answers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/qnas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Questions & Answers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/introduction_to_quantum_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Quantum Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/basic_quantum_mechanics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Quantum Mechanics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_states_and_qubits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum States and Qubits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_superposition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Superposition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_entanglement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Entanglement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_gate_model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Gate Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_circuit_model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Circuit Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/adiabatic_quantum_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adiabatic Quantum Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/topological_quantum_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Topological Quantum Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/introduction_to_quantum_algorithms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Quantum Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_fourier_transform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Fourier Transform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/shors_algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shor's Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/grovers_algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Grover's Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_phase_estimation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Phase Estimation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_simulation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Simulation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_annealing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Annealing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/variational_quantum_eigensolver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Variational Quantum Eigensolver
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_approximate_optimization_algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Approximate Optimization Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/amplitude_amplification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Amplitude Amplification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_walks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Walks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_machine_learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Machine Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_neural_networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Neural Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_support_vector_machines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Support Vector Machines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_generative_adversarial_networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Generative Adversarial Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_boltzmann_machines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Boltzmann Machines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_clustering_algorithms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Clustering Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_principal_component_analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Principal Component Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_information_theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Information Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_cryptography/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Cryptography
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_error_correction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Error Correction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_entropy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Entropy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_computing_applications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Computing Applications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_communication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Communication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_sensing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Sensing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_metrology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Metrology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_programming_languages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Programming Languages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_software_frameworks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Software Frameworks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_simulators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Simulators
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_cloud_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Cloud Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_development_kits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Development Kits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cheat Sheets
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Cheat Sheets
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/cheats/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cheat Sheets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/introduction_to_quantum_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Quantum Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/basic_quantum_mechanics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Quantum Mechanics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_states_and_qubits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum States and Qubits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_superposition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Superposition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_entanglement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Entanglement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_gate_model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Gate Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_circuit_model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Circuit Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/adiabatic_quantum_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adiabatic Quantum Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/topological_quantum_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Topological Quantum Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/introduction_to_quantum_algorithms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Quantum Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_fourier_transform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Fourier Transform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/shors_algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shor's Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/grovers_algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Grover's Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_phase_estimation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Phase Estimation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_simulation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Simulation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_annealing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Annealing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/variational_quantum_eigensolver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Variational Quantum Eigensolver
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_approximate_optimization_algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Approximate Optimization Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/amplitude_amplification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Amplitude Amplification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_walks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Walks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_machine_learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Machine Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_neural_networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Neural Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_support_vector_machines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Support Vector Machines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_generative_adversarial_networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Generative Adversarial Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_boltzmann_machines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Boltzmann Machines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_clustering_algorithms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Clustering Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_principal_component_analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Principal Component Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_information_theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Information Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_cryptography/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Cryptography
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_error_correction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Error Correction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_entropy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Entropy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_computing_applications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Computing Applications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_communication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Communication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_sensing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Sensing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_metrology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Metrology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_programming_languages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Programming Languages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_software_frameworks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Software Frameworks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_simulators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Simulators
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_cloud_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Cloud Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_development_kits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Development Kits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Projects
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Projects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            References
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../refs/refs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-overview-of-quantum-error-correction" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Overview of Quantum Error Correction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-quantum-error-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Quantum Error Models
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/teach-me-codes/quantum-computing/edit/master/docs/chapters/quantum_error_correction.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/teach-me-codes/quantum-computing/raw/master/docs/chapters/quantum_error_correction.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+<h1 id="quantum-error-correction">Quantum Error Correction</h1>
+<h2 id="1-overview-of-quantum-error-correction">1. Overview of Quantum Error Correction</h2>
+<p>Quantum Error Correction is a critical aspect of quantum computing, focused on safeguarding quantum information from errors induced by decoherence and quantum noise. Without error correction techniques, the fragile quantum states can degrade rapidly, compromising the reliability of quantum computations. Key points to consider include:</p>
+<ol>
+<li><strong>Importance in Quantum Computing</strong></li>
+<li>Quantum systems are prone to errors due to the delicate nature of qubits. Error correction is vital to ensure the accuracy and robustness of quantum algorithms and protocols.</li>
+<li>
+<p>By utilizing error correction codes, quantum computers can effectively mitigate errors and enable scalable quantum computation.</p>
+</li>
+<li>
+<p><strong>Challenges of Error Correction in Quantum Systems</strong></p>
+</li>
+<li>Quantum error correction encounters unique challenges compared to classical error correction methods. Quantum superposition and entanglement add complexity to error correction processes.</li>
+<li>Implementing error correction necessitates additional qubits for redundancy, elevating the intricacy and resource demands of quantum systems.</li>
+</ol>
+<h2 id="2-quantum-error-models">2. Quantum Error Models</h2>
+<p>Understanding the error types in quantum systems and their impact on quantum information is essential for devising effective error correction strategies. Key aspects to explore include:</p>
+<ol>
+<li><strong>Types of Errors in Quantum Systems</strong></li>
+<li><strong>Bit-flip Errors</strong>: Flipping the qubit state from 0 to 1 or vice versa due to external disruptions.</li>
+<li>
+<p><strong>Phase-flip Errors</strong>: Introducing phase changes to qubit states, impacting superposition states.</p>
+</li>
+<li>
+<p><strong>Effects of Errors on Quantum Information</strong></p>
+</li>
+<li>Errors in quantum systems can distort quantum states, influencing computation outcomes and communication reliability.</li>
+<li>Decoherence, stemming from interactions with the environment, is a significant error source leading to quantum coherence loss.</li>
+</ol>
+<p>By comprehensively understanding quantum error models, researchers and developers can tailor error correction codes to effectively safeguard quantum information.</p>
+<p>Quantum error correction is pivotal for realizing fault-tolerant quantum computers, ensuring the reliability and scalability of quantum information processing. Embracing error correction techniques is crucial for advancing quantum computing towards practical applications and harnessing the full potential of quantum technologies.</p>
+<h1 id="quantum-error-correction_1">Quantum Error Correction</h1>
+<h2 id="1-classical-vs-quantum-error-correction">1. Classical vs. Quantum Error Correction</h2>
+<h3 id="11-fundamental-differences">1.1 Fundamental Differences</h3>
+<ol>
+<li><strong>Error Models in Classical Computing</strong></li>
+<li>
+<p>In classical error correction, errors are typically modeled as bit flips or phase flips. Error correction codes like Hamming codes and Reed-Solomon codes are utilized to detect and correct these errors.</p>
+</li>
+<li>
+<p><strong>Superposition and Entanglement in Quantum Error Correction</strong></p>
+</li>
+<li>Quantum error correction leverages superposition and entanglement unique to quantum systems. Quantum information can exist in superposition states, allowing for the simultaneous encoding of multiple classical bits. Entangled qubits provide redundancy for error detection and correction beyond classical capabilities.</li>
+</ol>
+<h2 id="2-error-correction-techniques">2. Error Correction Techniques</h2>
+<h3 id="21-error-detection-vs-error-correction">2.1 Error Detection vs. Error Correction</h3>
+<ol>
+<li><strong>Error Detection</strong></li>
+<li>
+<p>Error detection methods identify errors in quantum information without correcting them. Techniques like parity checks can detect errors but require retransmission of the quantum state.</p>
+</li>
+<li>
+<p><strong>Error Correction</strong></p>
+</li>
+<li><strong>Quantum Error Correction Codes:</strong> Quantum error correction codes such as the Steane code and Shor code encode quantum information across multiple qubits, enabling error correction without direct measurement of the qubits.</li>
+</ol>
+<h3 id="22-comparative-analysis-of-classical-and-quantum-error-correction">2.2 Comparative Analysis of Classical and Quantum Error Correction</h3>
+<ol>
+<li><strong>Advantages of Quantum Error Correction</strong></li>
+<li>
+<p><strong>Protection without Disturbance:</strong> Quantum error correction can protect quantum information against errors without disturbing the state during the correction process.</p>
+</li>
+<li>
+<p><strong>Quantum Error Correction Challenges</strong></p>
+</li>
+<li><em>Decoherence:</em> Quantum error correction tackles decoherence, the loss of quantum coherence due to interactions with the environment. Techniques like active error correction and encoding in decoherence-protected subspaces address this challenge.</li>
+</ol>
+<p><strong>Example of Quantum Error Correction Code (QEC):</strong>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">shor_code_encode</span><span class="p">(</span><span class="n">qubit</span><span class="p">):</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="c1"># Encode qubit using the Shor code</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">encoded_qubit</span> <span class="o">=</span> <span class="n">apply_shor_encoding</span><span class="p">(</span><span class="n">qubit</span><span class="p">)</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="k">return</span> <span class="n">encoded_qubit</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">def</span> <span class="nf">shor_code_correct</span><span class="p">(</span><span class="n">encoded_qubit</span><span class="p">,</span> <span class="n">syndrome</span><span class="p">):</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="c1"># Correct errors in the encoded qubit using syndrome measurements</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="n">corrected_qubit</span> <span class="o">=</span> <span class="n">apply_shor_correction</span><span class="p">(</span><span class="n">encoded_qubit</span><span class="p">,</span> <span class="n">syndrome</span><span class="p">)</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="k">return</span> <span class="n">corrected_qubit</span>
+</span></code></pre></div></p>
+<p>Quantum error correction is crucial for ensuring the reliability and scalability of quantum computers by mitigating errors induced by noisy quantum environments. By harnessing quantum superposition and entanglement, quantum error correction codes pave the way for achieving fault-tolerant quantum computation.</p>
+<h1 id="quantum-error-correction_2">Quantum Error Correction</h1>
+<h2 id="1-stabilizer-codes">1. Stabilizer Codes</h2>
+<h3 id="11-definition-and-properties">1.1 Definition and Properties</h3>
+<ul>
+<li><strong>Stabilizer Group and Stabilizer Code</strong></li>
+<li>Stabilizer codes are a class of quantum error-correcting codes that protect quantum information by encoding it into logical qubits resistant to errors.</li>
+<li>The stabilizer group comprises operators stabilizing the code states, facilitating error detection and correction without disturbing the encoded information.</li>
+<li><strong>Error Detection using Stabilizer Codes</strong></li>
+<li>Syndromes of stabilizer generators provide error detection without directly measuring encoded qubits, preserving superposition states.</li>
+</ul>
+<h3 id="12-examples-of-stabilizer-codes">1.2 Examples of Stabilizer Codes</h3>
+<ul>
+<li><strong>Shor Code</strong></li>
+<li>The Shor code, a famous 9-qubit stabilizer code, corrects single-qubit errors and detects two-qubit errors by encoding one logical qubit into 9 physical qubits.</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Syndrome measurement for Shor code</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">def</span> <span class="nf">shor_syndrome_measurement</span><span class="p">(</span><span class="n">qubits</span><span class="p">):</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="c1"># Syndrome measurement logic</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="k">return</span> <span class="n">syndrome</span>
+</span></code></pre></div>
+<ul>
+<li><strong>Steane Code</strong></li>
+<li>The Steane code, a 7-qubit stabilizer code, corrects single-qubit errors using three encoded logical qubits with higher code efficiency than the Shor code.</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Syndrome measurement for Steane code</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">def</span> <span class="nf">steane_syndrome_measurement</span><span class="p">(</span><span class="n">qubits</span><span class="p">):</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="c1"># Syndrome measurement logic</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="k">return</span> <span class="n">syndrome</span>
+</span></code></pre></div>
+<p>Quantum error correction is vital in quantum computing, counteracting errors from decoherence and noise, ensuring reliable quantum technologies. Stabilizer codes like Shor and Steane demonstrate error detection and correction principles in quantum systems. Leveraging stabilizer group properties, these codes safeguard quantum information, advancing fault-tolerant quantum computers. This section elucidates stabilizer codes' foundation and importance in quantum error correction, pivotal for fault-tolerant quantum computation development.</p>
+<h1 id="quantum-error-correction_3">Quantum Error Correction</h1>
+<p>Quantum Error Correction is crucial in Quantum Information Theory to maintain the reliability of quantum computers by countering errors resulting from quantum noise, like decoherence. Several quantum error correction methods, such as <strong>Stabilizer Codes</strong>, <strong>Topological Codes</strong>, <strong>Subsystem Codes</strong>, and <strong>Color Codes</strong>, are essential for safeguarding quantum information against corruption.</p>
+<h2 id="1-quantum-codes-beyond-stabilizer-codes">1. Quantum Codes Beyond Stabilizer Codes</h2>
+<h3 id="11-topological-codes">1.1 Topological Codes</h3>
+<p>Topological quantum error correction codes are resilient to local errors and support fault-tolerant quantum computation. Notably:</p>
+<ol>
+<li>
+<p><strong>Surface Code</strong>:
+   The Surface Code is based on qubits positioned on a two-dimensional lattice's edges and vertices. It uses syndromes from multiple qubits for error detection and correction.</p>
+</li>
+<li>
+<p><strong>Anyon Models</strong>:
+   Anyon models utilize exotic quasi-particles, anyons, to encode and manipulate quantum information. Anyons present unique braiding properties crucial for fault-tolerant quantum computation.</p>
+</li>
+</ol>
+<h3 id="12-subsystem-codes">1.2 Subsystem Codes</h3>
+<p>Subsystem Codes, a versatile quantum error correction code class, includes:</p>
+<ol>
+<li>
+<p><strong>Quantum LDPC Codes</strong>:
+   Low-Density Parity-Check (LDPC) codes feature sparse check matrices, making them efficient for error correction. Widely adopted in quantum error correction for their performance and scalability.</p>
+</li>
+<li>
+<p><strong>Subsystem Surface Codes</strong>:
+   Subsystem Surface Codes extend the Surface Code concept by encoding larger logical qubits across multiple physical qubits, enhancing fault tolerance.</p>
+</li>
+</ol>
+<h3 id="13-color-codes">1.3 Color Codes</h3>
+<p>Color Codes, promising quantum error correction codes, are characterized by:</p>
+<ol>
+<li>
+<p><strong>Definition and Encoding</strong>:
+   Color Code states exist on a three-dimensional lattice with qubits represented by color degrees of freedom, enabling efficient error detection and correction.</p>
+</li>
+<li>
+<p><strong>Error Detection and Correction</strong>:
+   Color Codes use non-local parity measurements leveraging color degrees of freedom to identify and correct errors caused by noise and decoherence, improving quantum system fault tolerance.</p>
+</li>
+</ol>
+<p>Quantum Error Correction is pivotal for error mitigation in quantum computation, leading to robust and scalable quantum technology development.</p>
+<p>For a thorough understanding of Quantum Error Correction, refer to seminal works by prominent researchers like A. Steane and P. W. Shor in the field.</p>
+<h1 id="quantum-error-correction_4">Quantum Error Correction</h1>
+<p>Quantum Error Correction is a crucial discipline within Quantum Information Theory that focuses on guarding quantum information against errors caused by decoherence and intrinsic quantum noise, essential for building dependable quantum computers.</p>
+<h2 id="1-fault-tolerant-quantum-computing">1. Fault-Tolerant Quantum Computing</h2>
+<h3 id="11-threshold-theorem">1.1 Threshold Theorem</h3>
+<ul>
+<li><strong>Explanation and Importance</strong></li>
+<li>The Threshold Theorem establishes the feasibility of fault-tolerant quantum computing by demonstrating that if the error rate in quantum gates and measurements falls below a specific threshold, arbitrary long quantum computations can be executed reliably.</li>
+<li><strong>Threshold for Fault-Tolerant Quantum Computing</strong></li>
+<li>The threshold defines the error rates beyond which error correction codes cannot effectively mitigate errors, emphasizing the importance of achieving error rates below this threshold for successful fault-tolerant quantum computing implementation.</li>
+</ul>
+<h3 id="12-concatenated-codes">1.2 Concatenated Codes</h3>
+<ul>
+<li><strong>Concatenated Quantum Codes</strong></li>
+<li>Concatenated codes consist of applying multiple layers of encoding consecutively to enhance error correction capabilities, significantly improving the fault tolerance of quantum systems.</li>
+<li><strong>Error Correction Performance</strong></li>
+<li>Employing concatenated codes allows quantum systems to achieve superior error correction performance, effectively countering errors induced by noise and decoherence during quantum computations.</li>
+</ul>
+<h3 id="13-universal-quantum-computing">1.3 Universal Quantum Computing</h3>
+<ul>
+<li><strong>Requirements for Universality</strong></li>
+<li>Universal quantum computing involves a quantum computer's ability to perform any arbitrary quantum computation. Error correction is vital in achieving universality by mitigating errors that could disrupt quantum algorithms and computations.</li>
+<li><strong>Implementation Challenges and Advantages</strong></li>
+<li>Implementing error correction in universal quantum computing poses challenges due to the resource-intensive nature of fault-tolerant schemes. Nevertheless, the advantages, including enabling complex quantum algorithms and reliable computations, outweigh these challenges.</li>
+</ul>
+<h3 id="14-scalability-and-resource-requirements">1.4 Scalability and Resource Requirements</h3>
+<ul>
+<li><strong>Resource Overhead in Fault-Tolerant Systems</strong></li>
+<li>Fault-tolerant quantum systems require additional resources and computational overhead to implement error correction codes effectively, posing scalability challenges for building large-scale fault-tolerant quantum computers.</li>
+<li><strong>Scalability Issues in Quantum Error Correction</strong></li>
+<li>Scalability challenges arise from escalating resource demands as the system size increases. Addressing these challenges is crucial for the practical realization of fault-tolerant quantum computing on a large scale.</li>
+</ul>
+<p>Quantum Error Correction is paramount for fault-tolerant quantum computing, enabling the creation of reliable quantum computers capable of executing complex quantum algorithms with high fidelity.</p>
+<h1 id="quantum-error-correction-in-practice">Quantum Error Correction in Practice</h1>
+<h2 id="practical-challenges">Practical Challenges</h2>
+<ol>
+<li><strong>Error Rates in Real Quantum Hardware</strong></li>
+<li>Quantum error correction faces significant challenges due to errors in real quantum hardware, including qubit noise, gate errors, and measurement errors.</li>
+<li>
+<p><em>Quantum Error Correction Code Example</em>: One of the widely used quantum error correction codes is the <strong>Surface Code</strong>, known for its ability to correct multiple errors.</p>
+</li>
+<li>
+<p><strong>Noise Characteristics in Current Quantum Devices</strong></p>
+</li>
+<li>Understanding and characterizing the noise in current quantum devices is crucial for implementing effective error correction schemes.</li>
+<li><em>Noise Mitigation Techniques</em>: Techniques such as error detection, error correction, and fault tolerance are essential to combat noise.</li>
+</ol>
+<h2 id="experimental-implementations">Experimental Implementations</h2>
+<ol>
+<li><strong>Leading Quantum Error Correction Experiments</strong></li>
+<li>Researchers have conducted groundbreaking experiments to implement quantum error correction on various quantum processors.</li>
+<li>
+<p><em>Example Experiment</em>: The <strong>Kitaev's Toric Code</strong> experiment demonstrated the principles of topological quantum error correction.</p>
+</li>
+<li>
+<p><strong>Successes and Limitations</strong></p>
+</li>
+<li>While significant progress has been made in implementing quantum error correction, there are limitations such as scalability, overhead, and operational complexity.</li>
+<li><em>Scalability Challenge</em>: Scaling up error correction to larger quantum systems while maintaining low error rates remains a key challenge.</li>
+</ol>
+<h2 id="software-tools-and-simulation">Software Tools and Simulation</h2>
+<ol>
+<li><strong>Quantum Error Correction Simulators</strong></li>
+<li>Specialized software tools and simulators play a crucial role in testing and validating quantum error correction codes before implementing them on actual quantum hardware.</li>
+<li>
+<p><em>Software Application</em>: <strong>Qiskit Ignis</strong> provides tools for quantum error correction research, including error mitigation and error analysis.</p>
+</li>
+<li>
+<p><strong>Role of Software in Quantum Error Correction Development</strong></p>
+</li>
+<li>Software tools enable researchers to design, simulate, and optimize quantum error correction protocols, accelerating the development of robust error correction techniques.</li>
+<li><em>Code Snippet for Error Correction Simulation</em>:
+    <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">qiskit.ignis.verification.topological_codes</span> <span class="kn">import</span> <span class="n">RepetitionCode</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">code</span> <span class="o">=</span> <span class="n">RepetitionCode</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+</span></code></pre></div></li>
+</ol>
+<p>Quantum error correction is a vital area of research in quantum computing, aiming to ensure the reliability and scalability of quantum systems in the presence of noise and errors. Researchers address practical challenges, experiment with error correction schemes, and utilize software tools for simulation and development to advance the field of quantum error correction towards building fault-tolerant quantum computers.</p>
+<h1 id="quantum-error-correction-future-directions">Quantum Error Correction: Future Directions</h1>
+<h2 id="1-research-trends">1. Research Trends</h2>
+<ol>
+<li><strong>Advancements in Quantum Error Correction Theory</strong></li>
+<li>Continuous enhancement of quantum error correction theory to develop more efficient codes for protecting quantum information from errors caused by decoherence and other noise sources.</li>
+<li>
+<p>Significant progress includes the creation of topological quantum error-correcting codes like the surface code, providing robust error protection.</p>
+</li>
+<li>
+<p><strong>Novel Quantum Code Designs</strong></p>
+</li>
+<li>Exploration of novel quantum code designs to optimize error detection and correction capabilities, aiming for more efficient quantum error correction.</li>
+<li>For instance, the introduction of color codes has shown potential in achieving fault-tolerant quantum computation with fewer physical qubits than traditional codes.</li>
+</ol>
+<h2 id="2-hybrid-approaches">2. Hybrid Approaches</h2>
+<ol>
+<li><strong>Combining Classical and Quantum Error Correction Techniques</strong></li>
+<li>Integration of classical and quantum error correction techniques to enhance the reliability and efficiency of error correction protocols.</li>
+<li>
+<p>By combining classical and quantum error correction methods, researchers address the limitations of purely quantum or purely classical error correction approaches.</p>
+</li>
+<li>
+<p><strong>Hybrid Error Correction Protocols</strong></p>
+</li>
+<li>Utilization of the strengths of classical and quantum error correction to achieve fault tolerance in quantum computations.</li>
+<li>An example includes concatenating quantum codes with classical codes, where classical coding corrects errors within blocks of the quantum code, enhancing the overall error correction capabilities.</li>
+</ol>
+<h2 id="3-error-mitigation-strategies">3. Error Mitigation Strategies</h2>
+<ol>
+<li><strong>Post-Processing Error Correction Methods</strong></li>
+<li>Application of error correction algorithms after quantum computations to rectify errors and enhance result accuracy.</li>
+<li>
+<p>Common techniques include syndrome extraction and decoding algorithms used in post-processing to identify and correct errors.</p>
+</li>
+<li>
+<p><strong>Error-Resilient Quantum Algorithms</strong></p>
+</li>
+<li>Design of error-resilient quantum algorithms to withstand errors during computation, reducing sensitivity to noise and system imperfections.</li>
+<li>These algorithms incorporate error mitigation strategies within the computation workflow to preserve the integrity of quantum data and results.</li>
+</ol>
+<p>Quantum error correction is a rapidly evolving field with advancements in theory, code designs, hybrid approaches, and error mitigation strategies. These developments are essential for realizing the potential of quantum technology in various applications.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../quantum_cryptography/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Quantum Cryptography">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Quantum Cryptography
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../quantum_entropy/" class="md-footer__link md-footer__link--next" aria-label="Next: Quantum Entropy">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Quantum Entropy
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://teach-me-codes.github.io" target="_blank" rel="noopener" title="teach-me-codes.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://x.com/TeachMeCodes" target="_blank" rel="noopener" title="x.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/teachmecodes" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/teach-me-codes" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/@teach-me-codes" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+  
+    
+  
+
+
+  
+    
+  
+
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        </label>
+      </li>
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="github" checked>
+          <span class="task-list-indicator"></span>
+          GitHub
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.081f42fc.min.js"></script>
+      
+        <script src="../../static/mathjax-config.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

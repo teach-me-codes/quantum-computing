@@ -1,0 +1,4237 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A comprehensive guide to learning quantum computing and quantum algorithms.">
+      
+      
+        <meta name="author" content="Teach Me Codes">
+      
+      
+        <link rel="canonical" href="https://learning.teachme.codes/chapters/quantum_entropy/">
+      
+      
+        <link rel="prev" href="../quantum_error_correction/">
+      
+      
+        <link rel="next" href="../quantum_computing_applications/">
+      
+      
+      <link rel="icon" href="../../assets/fevicon.ico">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.25">
+    
+    
+      
+        <title>Quantum Entropy - Learning Quantum Computing</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-ECS7B3X8JM"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-ECS7B3X8JM",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-ECS7B3X8JM",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#quantum-entropy" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Learning Quantum Computing" class="md-header__button md-logo" aria-label="Learning Quantum Computing" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learning Quantum Computing
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Quantum Entropy
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/teach-me-codes/quantum-computing" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../chapters/" class="md-tabs__link">
+          
+  
+    
+  
+  Book Chapters
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../qnas/qnas/" class="md-tabs__link">
+          
+  
+    
+  
+  Questions & Answers
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cheats/cheats/" class="md-tabs__link">
+          
+  
+    
+  
+  Cheat Sheets
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../projects/projects/" class="md-tabs__link">
+          
+  
+    
+  
+  Projects
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../refs/refs/" class="md-tabs__link">
+          
+  
+    
+  
+  References
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learning Quantum Computing" class="md-nav__button md-logo" aria-label="Learning Quantum Computing" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Learning Quantum Computing
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/teach-me-codes/quantum-computing" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Book Chapters
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Book Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Book Chapters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction_to_quantum_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Quantum Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic_quantum_mechanics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Quantum Mechanics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_states_and_qubits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum States and Qubits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_superposition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Superposition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_entanglement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Entanglement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_gate_model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Gate Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_circuit_model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Circuit Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adiabatic_quantum_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adiabatic Quantum Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topological_quantum_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Topological Quantum Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction_to_quantum_algorithms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Quantum Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_fourier_transform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Fourier Transform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shors_algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shor's Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grovers_algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Grover's Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_phase_estimation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Phase Estimation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_simulation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Simulation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_annealing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Annealing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variational_quantum_eigensolver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Variational Quantum Eigensolver
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_approximate_optimization_algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Approximate Optimization Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../amplitude_amplification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Amplitude Amplification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_walks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Walks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_machine_learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Machine Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_neural_networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Neural Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_support_vector_machines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Support Vector Machines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_generative_adversarial_networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Generative Adversarial Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_boltzmann_machines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Boltzmann Machines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_clustering_algorithms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Clustering Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_principal_component_analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Principal Component Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_information_theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Information Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_cryptography/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Cryptography
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_error_correction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Error Correction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Quantum Entropy
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Entropy
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-overview-of-quantum-entropy" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Overview of Quantum Entropy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Overview of Quantum Entropy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-definition-and-importance" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Definition and Importance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-relation-to-uncertainty-in-quantum-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Relation to Uncertainty in Quantum Systems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-key-concepts-in-quantum-information-theory" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Key Concepts in Quantum Information Theory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Key Concepts in Quantum Information Theory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-entanglement" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Entanglement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-superposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Superposition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-measurement-in-quantum-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Measurement in Quantum Systems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_computing_applications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Computing Applications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_communication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Communication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_sensing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Sensing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_metrology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Metrology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_programming_languages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Programming Languages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_software_frameworks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Software Frameworks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_simulators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Simulators
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_cloud_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Cloud Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum_development_kits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Development Kits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Questions & Answers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Questions & Answers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/qnas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Questions & Answers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/introduction_to_quantum_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Quantum Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/basic_quantum_mechanics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Quantum Mechanics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_states_and_qubits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum States and Qubits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_superposition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Superposition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_entanglement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Entanglement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_gate_model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Gate Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_circuit_model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Circuit Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/adiabatic_quantum_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adiabatic Quantum Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/topological_quantum_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Topological Quantum Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/introduction_to_quantum_algorithms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Quantum Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_fourier_transform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Fourier Transform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/shors_algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shor's Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/grovers_algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Grover's Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_phase_estimation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Phase Estimation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_simulation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Simulation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_annealing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Annealing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/variational_quantum_eigensolver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Variational Quantum Eigensolver
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_approximate_optimization_algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Approximate Optimization Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/amplitude_amplification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Amplitude Amplification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_walks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Walks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_machine_learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Machine Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_neural_networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Neural Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_support_vector_machines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Support Vector Machines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_generative_adversarial_networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Generative Adversarial Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_boltzmann_machines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Boltzmann Machines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_clustering_algorithms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Clustering Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_principal_component_analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Principal Component Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_information_theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Information Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_cryptography/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Cryptography
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_error_correction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Error Correction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_entropy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Entropy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_computing_applications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Computing Applications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_communication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Communication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_sensing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Sensing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_metrology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Metrology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_programming_languages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Programming Languages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_software_frameworks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Software Frameworks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_simulators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Simulators
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_cloud_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Cloud Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qnas/quantum_development_kits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Development Kits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cheat Sheets
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Cheat Sheets
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/cheats/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cheat Sheets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/introduction_to_quantum_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Quantum Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/basic_quantum_mechanics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Quantum Mechanics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_states_and_qubits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum States and Qubits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_superposition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Superposition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_entanglement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Entanglement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_gate_model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Gate Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_circuit_model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Circuit Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/adiabatic_quantum_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adiabatic Quantum Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/topological_quantum_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Topological Quantum Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/introduction_to_quantum_algorithms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Quantum Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_fourier_transform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Fourier Transform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/shors_algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shor's Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/grovers_algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Grover's Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_phase_estimation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Phase Estimation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_simulation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Simulation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_annealing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Annealing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/variational_quantum_eigensolver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Variational Quantum Eigensolver
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_approximate_optimization_algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Approximate Optimization Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/amplitude_amplification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Amplitude Amplification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_walks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Walks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_machine_learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Machine Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_neural_networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Neural Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_support_vector_machines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Support Vector Machines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_generative_adversarial_networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Generative Adversarial Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_boltzmann_machines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Boltzmann Machines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_clustering_algorithms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Clustering Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_principal_component_analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Principal Component Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_information_theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Information Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_cryptography/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Cryptography
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_error_correction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Error Correction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_entropy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Entropy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_computing_applications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Computing Applications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_communication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Communication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_sensing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Sensing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_metrology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Metrology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_programming_languages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Programming Languages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_software_frameworks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Software Frameworks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_simulators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Simulators
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_cloud_computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Cloud Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cheats/quantum_development_kits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Development Kits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Projects
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Projects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            References
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../refs/refs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-overview-of-quantum-entropy" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Overview of Quantum Entropy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Overview of Quantum Entropy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-definition-and-importance" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Definition and Importance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-relation-to-uncertainty-in-quantum-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Relation to Uncertainty in Quantum Systems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-key-concepts-in-quantum-information-theory" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Key Concepts in Quantum Information Theory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Key Concepts in Quantum Information Theory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-entanglement" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Entanglement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-superposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Superposition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-measurement-in-quantum-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Measurement in Quantum Systems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/teach-me-codes/quantum-computing/edit/master/docs/chapters/quantum_entropy.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/teach-me-codes/quantum-computing/raw/master/docs/chapters/quantum_entropy.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+<h1 id="quantum-entropy">Quantum Entropy</h1>
+<h2 id="1-overview-of-quantum-entropy">1. Overview of Quantum Entropy</h2>
+<h3 id="11-definition-and-importance">1.1 Definition and Importance</h3>
+<ul>
+<li><strong>Quantum Entropy</strong> quantifies the uncertainty or randomness of a quantum state, analogous to classical entropy but with unique quantum properties.</li>
+<li>In quantum information theory, <strong>Quantum Entropy</strong> plays a crucial role in measuring the information content and understanding the complexity of quantum systems.</li>
+</ul>
+<h3 id="12-relation-to-uncertainty-in-quantum-systems">1.2 Relation to Uncertainty in Quantum Systems</h3>
+<ul>
+<li>Quantum Entropy is closely related to the uncertainty principle in quantum mechanics, characterizing the amount of information required to fully describe a quantum state.</li>
+<li>The concept of <strong>Quantum Entropy</strong> aids in the analysis of unpredictability or disorder within quantum systems, essential for various quantum computing and quantum communication tasks.</li>
+</ul>
+<h2 id="2-key-concepts-in-quantum-information-theory">2. Key Concepts in Quantum Information Theory</h2>
+<h3 id="21-entanglement">2.1 Entanglement</h3>
+<ul>
+<li><strong>Entanglement</strong> is a fundamental concept in Quantum Information Theory where the quantum states of multiple particles are correlated, exhibiting non-classical correlations.</li>
+<li>Quantum Entropy, particularly <strong>Entanglement Entropy</strong>, quantifies the entanglement present in a quantum system, providing insights into the complexity and computational power of quantum algorithms.</li>
+</ul>
+<h3 id="22-superposition">2.2 Superposition</h3>
+<ul>
+<li><strong>Superposition</strong> is a unique property of quantum systems where a particle can exist in multiple states simultaneously until measured.</li>
+<li>Quantum Entropy helps in measuring the uncertainty associated with the different superposed states, enabling the quantification of the information content stored in the superposition.</li>
+</ul>
+<h3 id="23-measurement-in-quantum-systems">2.3 Measurement in Quantum Systems</h3>
+<ul>
+<li><strong>Measurement in Quantum Systems</strong> plays a critical role in collapsing the superpositioned states to definite outcomes.</li>
+<li>Quantum Entropy characterizes the information loss or gain during measurements, influencing the overall information processing and quantum communication schemes.</li>
+</ul>
+<p>Quantum Entropy serves as a vital metric for understanding the information content, uncertainty, and complexity of quantum systems, significantly contributing to advancements in quantum computing, quantum communications, and quantum thermodynamics. Its applications extend to quantum cryptography, quantum error correction, and quantum machine learning, making it an indispensable concept in the field of Quantum Information Theory.</p>
+<h1 id="quantum-entropy_1">Quantum Entropy</h1>
+<p>Quantum Entropy quantifies the uncertainty or randomness associated with a quantum state and is a fundamental concept in Quantum Information Theory, finding applications in quantum thermodynamics and quantum communications.</p>
+<h2 id="1-definition-and-representation">1. Definition and Representation</h2>
+<ol>
+<li>
+<p><strong>Quantum Entropy Definition</strong>:
+   Quantum entropy is represented by the von Neumann entropy, denoted as <span class="arithmatex">\(S(\rho)\)</span>, which measures the uncertainty or lack of information in a quantum state. Mathematically, it is defined as:
+   $$ S(\rho) = - \text{Tr}(\rho \log \rho) $$</p>
+</li>
+<li>
+<p><strong>Quantum Entropy Representation</strong>:
+   Quantum entropy is often represented using the density matrix (<span class="arithmatex">\(\rho\)</span>) of a quantum system. The density matrix contains all information about the quantum state, including superposition and entanglement properties.</p>
+</li>
+</ol>
+<h2 id="2-differences-from-classical-entropy">2. Differences from Classical Entropy</h2>
+<ol>
+<li>
+<p><strong>Quantum vs. Classical Entropy</strong>:</p>
+<ul>
+<li><em>Superposition</em>: Quantum entropy accounts for states in superposition where systems exist in multiple states simultaneously, unlike classical systems with a single defined state.</li>
+<li><em>Entanglement</em>: Quantum entropy considers entanglement, where particles are correlated non-locally, adding complexity to entropy calculations.</li>
+<li><em>Measurement Basis Dependence</em>: Quantum entropy depends on the measurement basis due to the probabilistic nature of quantum measurements, contrasting with classical entropy's basis-independence.</li>
+</ul>
+</li>
+<li>
+<p><strong>Example</strong>:
+   Let's consider a qubit in the superposition state <span class="arithmatex">\(\frac{1}{\sqrt{2}}|0\rangle + \frac{1}{\sqrt{2}}|1\rangle\)</span>. Calculating the von Neumann entropy for this qubit using the density matrix representation:</p>
+</li>
+</ol>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">logm</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Density matrix of the qubit state</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">rho</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]])</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Von Neumann Entropy calculation</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">vn_entropy</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">logm</span><span class="p">(</span><span class="n">rho</span><span class="p">)))</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Von Neumann Entropy:&quot;</span><span class="p">,</span> <span class="n">vn_entropy</span><span class="p">)</span>
+</span></code></pre></div>
+<p>In summary, Quantum Entropy, specifically von Neumann entropy, serves as a crucial measure for uncertainty in quantum systems, showcasing distinctions from classical entropy due to quantum mechanics' unique features. Its applications span diverse domains, underscoring its significance in advancing quantum information theory.</p>
+<h1 id="quantum-entropy-understanding-uncertainty-in-quantum-systems">Quantum Entropy: Understanding Uncertainty in Quantum Systems</h1>
+<h2 id="1-quantum-entropy-of-a-pure-state">1. Quantum Entropy of a Pure State</h2>
+<h3 id="11-calculation-methods">1.1 Calculation Methods</h3>
+<ul>
+<li>Quantum entropy of a pure state quantifies the uncertainty associated with measurements on a quantum system described by a pure state vector. It is crucial for understanding the information content of a quantum state.</li>
+<li><strong>Von Neumann Entropy</strong>: One common method to calculate quantum entropy is using the Von Neumann entropy, defined for a pure state <span class="arithmatex">\(\vert\psi\rangle\)</span> as:
+  $$ S(\rho) = -\text{Tr}(\rho \log\rho) $$
+  where <span class="arithmatex">\(\rho = \vert\psi\rangle\langle\psi\vert\)</span> is the density matrix.</li>
+</ul>
+<h3 id="12-interpretation-in-quantum-mechanics">1.2 Interpretation in Quantum Mechanics</h3>
+<ul>
+<li>In quantum mechanics, the quantum entropy of a pure state represents the amount of uncertainty in the state before measurement. A maximally entangled pure state has the highest entropy, indicating the highest uncertainty.</li>
+<li>Quantum entropy is intertwined with the concept of quantum entanglement, where highly entangled states exhibit higher entropy and maximal quantum correlations.</li>
+</ul>
+<h2 id="2-mixed-state-entropy">2. Mixed State Entropy</h2>
+<h3 id="21-density-matrix-representation">2.1 Density Matrix Representation</h3>
+<ul>
+<li>When dealing with mixed states, described by density matrices <span class="arithmatex">\(\rho\)</span>, the entropy calculation becomes more nuanced. The entropy of a mixed state is given by the Von Neumann entropy as:
+  $$ S(\rho) = -\text{Tr}(\rho \log\rho) $$</li>
+<li><strong>Example</strong>: For a mixed state of a qubit, where the density matrix is <span class="arithmatex">\(\rho = \frac{1}{2}(\vert0\rangle\langle0\vert + \vert1\rangle\langle1\vert)\)</span>, the entropy can be computed using the expression above.</li>
+</ul>
+<h3 id="22-relationship-to-pure-state-entropy">2.2 Relationship to Pure State Entropy</h3>
+<ul>
+<li>The entropy of a mixed state is always greater than or equal to the entropy of any pure state within the mixture. It encapsulates the mixed nature and uncertainty arising from the statistical ensemble of different pure states.</li>
+<li>Understanding the relationship between mixed state entropy and pure state entropy is pivotal for various quantum computing and information processing tasks.</li>
+</ul>
+<h2 id="3-relative-entropy">3. Relative Entropy</h2>
+<h3 id="31-definition-and-use-cases">3.1 Definition and Use Cases</h3>
+<ul>
+<li>Relative entropy quantifies the distinguishability between two quantum states. For quantum states <span class="arithmatex">\(\rho\)</span> and <span class="arithmatex">\(\sigma\)</span>, the relative entropy is defined as:
+  $$ S(\rho\parallel\sigma) = \text{Tr}(\rho(\log\rho - \log\sigma)) $$</li>
+<li><strong>Applications</strong>: Relative entropy plays a crucial role in quantum hypothesis testing, quantum channel discrimination, and characterizing quantum state distinguishability.</li>
+</ul>
+<h3 id="32-quantum-vs-classical-relative-entropy">3.2 Quantum vs. Classical Relative Entropy</h3>
+<ul>
+<li>Quantum relative entropy differs from classical relative entropy due to the non-commutative nature of quantum mechanics. Classical relative entropy is a special case of quantum relative entropy when dealing with classical probability distributions.</li>
+<li>The distinction highlights the unique quantum features that govern quantum information processing and distinguish it from classical information theory paradigms.</li>
+</ul>
+<p>Quantum entropy is a fundamental tool in quantum information theory, providing insights into the uncertainty inherent in quantum systems. It enables the development of advanced quantum technologies in fields such as quantum thermodynamics and quantum communications.</p>
+<h1 id="quantum-entropy-in-quantum-computing">Quantum Entropy in Quantum Computing</h1>
+<h2 id="1-entropy-in-quantum-algorithms">1. Entropy in Quantum Algorithms</h2>
+<h3 id="11-role-of-entropy-in-quantum-algorithm-design">1.1 Role of Entropy in Quantum Algorithm Design</h3>
+<p>In the domain of quantum algorithms, <strong>entropy serves a crucial role</strong> in comprehending and refining quantum computations. Entropy quantifies the uncertainty inherent in quantum states, which is fundamental for processes like quantum search, simulation, and optimization. Through entropy measures, algorithm designers can evaluate the complexity and effectiveness of quantum algorithms.</p>
+<h3 id="12-entropy-optimization-strategies">1.2 Entropy Optimization Strategies</h3>
+<p>To boost the performance of quantum algorithms, researchers implement <strong>entropy optimization strategies</strong>. These strategies aim to minimize entropy, thereby reducing randomness and enhancing predictability in quantum states. Optimization of entropy enables quantum algorithms to achieve higher accuracy, speed, and reliability in computations, leading to advancements in quantum computing applications.</p>
+<h2 id="2-entropy-in-quantum-error-correction">2. Entropy in Quantum Error Correction</h2>
+<h3 id="21-error-models-and-entropy">2.1 Error Models and Entropy</h3>
+<p><strong>Quantum error correction</strong> relies on <strong>comprehending entropy</strong> within error models to effectively detect and rectify errors. Characterizing entropy related to noise and errors in quantum systems is crucial for designing robust error correction codes. By quantifying and analyzing entropy in error models, researchers can develop efficient error correction techniques that mitigate noise impact on quantum computations.</p>
+<h3 id="22-entropy-based-error-correction-techniques">2.2 Entropy-based Error Correction Techniques</h3>
+<p>Entropy forms the basis for <strong>innovative error correction techniques</strong> in quantum computing. Approaches like entropic thresholding, entropy coding, and entropy-based decoding algorithms are utilized to rectify errors in quantum systems. These techniques leverage entropy measures to identify and rectify errors, ensuring reliability and fault-tolerance in quantum computations.</p>
+<h2 id="3-entropy-in-quantum-state-tomography">3. Entropy in Quantum State Tomography</h2>
+<h3 id="31-quantum-state-reconstruction-methods">3.1 Quantum State Reconstruction Methods</h3>
+<p><strong>Quantum state tomography</strong> involves reconstructing the complete quantum state of a system based on measurements. Entropy metrics play a pivotal role in determining the fidelity and accuracy of state reconstruction methods. Through entropy metrics evaluation, researchers can gauge the quality of reconstructed quantum states and enhance the precision of quantum state tomography techniques.</p>
+<h3 id="32-entropy-metrics-for-state-characterization">3.2 Entropy Metrics for State Characterization</h3>
+<p>Entropy metrics like <strong>von Neumann entropy</strong> and <strong>Rényi entropy</strong> are commonly utilized for <strong>characterizing quantum states</strong> in state tomography. These metrics offer valuable insights into the information content, purity, and coherence of quantum states. By employing entropy metrics for state characterization, researchers can elucidate properties of complex quantum systems and optimize quantum state tomography processes.</p>
+<p>Quantum entropy is a versatile concept that underpins various facets of quantum computing, encompassing algorithm design, error correction, and state characterization. By leveraging entropy measures and optimization strategies, researchers can propel the capabilities of quantum systems, leading to groundbreaking advancements in quantum information theory and applications.</p>
+<h1 id="quantum-entropy-a-fundamental-concept-in-quantum-information-theory">Quantum Entropy: A Fundamental Concept in Quantum Information Theory</h1>
+<h2 id="1-understanding-quantum-entropy">1. Understanding Quantum Entropy</h2>
+<h3 id="11-definition-and-significance">1.1 Definition and Significance</h3>
+<ul>
+<li><strong>Quantum Entropy</strong> quantifies the uncertainty or disorder in a quantum state, highlighting the lack of information about the system.</li>
+<li>This measure plays a crucial role in characterizing the complexity of quantum states and is vital for analyzing quantum dynamics.</li>
+</ul>
+<h3 id="12-von-neumann-entropy">1.2 Von Neumann Entropy</h3>
+<ul>
+<li><strong>Von Neumann Entropy</strong> is a prominent measure in quantum mechanics, named after John von Neumann.</li>
+<li>It is computed for a quantum state ρ as:
+  $$ S(\rho) = -tr(\rho \log \rho) $$</li>
+</ul>
+<h3 id="13-properties-and-interpretation">1.3 Properties and Interpretation</h3>
+<ul>
+<li>Quantum Entropy shares essential properties with classical entropy, such as positivity, concavity, and additivity.</li>
+<li>Higher entropy signifies increased uncertainty, suggesting a more disordered or mixed quantum state.</li>
+</ul>
+<h2 id="2-applications-of-quantum-entropy">2. Applications of Quantum Entropy</h2>
+<h3 id="21-quantum-cryptography">2.1 Quantum Cryptography</h3>
+<ul>
+<li><strong>Entropic Security Measures</strong> leverage quantum entropy to enhance the security of cryptographic protocols, quantifying the system's secrecy.</li>
+<li><strong>Quantum Key Distribution Protocols</strong> like BB84 use quantum entropy to establish secure cryptographic keys between distant parties.</li>
+</ul>
+<h3 id="22-quantum-thermodynamics">2.2 Quantum Thermodynamics</h3>
+<ul>
+<li><strong>Entropy in Quantum Heat Engines</strong> employs quantum entropy to assess the efficiency of microscale quantum heat engines.</li>
+<li><strong>Entropy Minimization in Quantum Systems</strong> aims to reduce entropy in quantum systems, enhancing their stability and coherence.</li>
+</ul>
+<h3 id="23-quantum-communications">2.3 Quantum Communications</h3>
+<ul>
+<li><strong>Channel Capacity and Entropy</strong> determine the information-carrying capacity of quantum channels, setting the maximum reliable information transmission rate.</li>
+<li><strong>Entropy Coding Schemes</strong> optimize data compression and encryption in quantum communication protocols using quantum entropy.</li>
+</ul>
+<p>In summary, Quantum Entropy is a cornerstone in Quantum Information Theory, shedding light on the uncertainty and complexity of quantum systems. Its wide-ranging applications in cryptography, thermodynamics, and communications reflect its significance in modern quantum technologies.</p>
+<h1 id="quantum-entropy-in-quantum-information-theory">Quantum Entropy in Quantum Information Theory</h1>
+<h2 id="1-exploring-advanced-topics-in-quantum-entropy">1. <strong>Exploring Advanced Topics in Quantum Entropy</strong></h2>
+<h3 id="11-entanglement-entropy">1.1 <strong>Entanglement Entropy</strong></h3>
+<p>Entanglement entropy is a pivotal concept in quantum information theory, measuring the entanglement between subsystems of a composite quantum system, reflecting the shared quantum information.</p>
+<ul>
+<li><strong>Quantifying Entanglement</strong></li>
+<li>
+<p>Different measures like Von Neumann entropy, Rényi entropy, and negativity are utilized to assess entanglement in diverse scenarios.</p>
+</li>
+<li>
+<p><strong>Role in Quantum Field Theory</strong></p>
+</li>
+<li>This entropy is essential in quantum field theory for understanding correlations among quantum field regions.</li>
+</ul>
+<h3 id="12-holevo-bound">1.2 <strong>Holevo Bound</strong></h3>
+<p>The Holevo bound serves as a fundamental quantum information theory limit, determining the maximum classical information extractable from a quantum state reliably, crucial in quantum communications and cryptography.</p>
+<ul>
+<li><strong>Definition and Relevance</strong></li>
+<li>
+<p>It defines the ultimate limit for extracting information from a quantum state with classical and quantum correlations considered.</p>
+</li>
+<li>
+<p><strong>Application to Quantum Information Processing</strong></p>
+</li>
+<li>Understanding and enhancing classical information extraction from quantum states are vital for efficient quantum communication protocols and information processing.</li>
+</ul>
+<h3 id="13-maximal-entropy">1.3 <strong>Maximal Entropy</strong></h3>
+<p>Maximal entropy signifies the highest uncertainty associated with a quantum state, showcasing insights into system disorder and randomness.</p>
+<ul>
+<li><strong>Definition and Limits</strong></li>
+<li>
+<p>It imposes a constraint on predictability and information content of a quantum state, indicating the maximum uncertainty level within the system.</p>
+</li>
+<li>
+<p><strong>Importance in Quantum Information Theory</strong></p>
+</li>
+<li>By characterizing maximal entropy, researchers can evaluate information capacity of quantum systems, especially in secure cryptographic protocols and efficient quantum algorithms development.</li>
+</ul>
+<p>The advanced topics in quantum entropy, such as entanglement entropy, the Holevo bound, and maximal entropy, underscore the role of entropy in quantifying uncertainty, entanglement, and information processing within quantum systems. These concepts are foundational for advancing quantum information theory and its applications in quantum thermodynamics and communications.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../quantum_error_correction/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Quantum Error Correction">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Quantum Error Correction
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../quantum_computing_applications/" class="md-footer__link md-footer__link--next" aria-label="Next: Quantum Computing Applications">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Quantum Computing Applications
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://teach-me-codes.github.io" target="_blank" rel="noopener" title="teach-me-codes.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://x.com/TeachMeCodes" target="_blank" rel="noopener" title="x.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/teachmecodes" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/teach-me-codes" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/@teach-me-codes" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+  
+    
+  
+
+
+  
+    
+  
+
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        </label>
+      </li>
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="github" checked>
+          <span class="task-list-indicator"></span>
+          GitHub
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.081f42fc.min.js"></script>
+      
+        <script src="../../static/mathjax-config.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

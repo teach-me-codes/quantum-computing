@@ -2,207 +2,632 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://learning.teachme.codes/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/adiabatic_quantum_computing/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/adiabatic_quantum_computing/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/amplitude_amplification/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/amplitude_amplification/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/basic_quantum_mechanics/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/basic_quantum_mechanics/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/grovers_algorithm/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/chapters/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/introduction_to_quantum_algorithms/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/grovers_algorithm/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/introduction_to_quantum_computing/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/introduction_to_quantum_algorithms/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_annealing/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/introduction_to_quantum_computing/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_approximate_optimization_algorithm/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_annealing/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_boltzmann_machines/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_approximate_optimization_algorithm/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_circuit_model/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_boltzmann_machines/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_cloud_computing/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_circuit_model/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_clustering_algorithms/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_cloud_computing/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_communication/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_clustering_algorithms/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_computing_applications/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_communication/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_cryptography/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_computing_applications/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_development_kits/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_cryptography/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_entanglement/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_development_kits/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_entropy/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_entanglement/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_error_correction/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_entropy/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_fourier_transform/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_error_correction/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_gate_model/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_fourier_transform/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_generative_adversarial_networks/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_gate_model/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_information_theory/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_generative_adversarial_networks/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_machine_learning/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_information_theory/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_metrology/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_machine_learning/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_neural_networks/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_metrology/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_phase_estimation/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_neural_networks/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_principal_component_analysis/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_phase_estimation/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_programming_languages/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_principal_component_analysis/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_sensing/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_programming_languages/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_simulation/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_sensing/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_simulators/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_simulation/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_software_frameworks/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_simulators/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_states_and_qubits/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_software_frameworks/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_superposition/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_states_and_qubits/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_support_vector_machines/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_superposition/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/quantum_walks/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_support_vector_machines/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/shors_algorithm/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/quantum_walks/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/topological_quantum_computing/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/shors_algorithm/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://learning.teachme.codes/variational_quantum_eigensolver/</loc>
-         <lastmod>2024-06-21</lastmod>
+         <loc>https://learning.teachme.codes/chapters/topological_quantum_computing/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/chapters/variational_quantum_eigensolver/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/adiabatic_quantum_computing/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/amplitude_amplification/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/basic_quantum_mechanics/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/cheats/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/grovers_algorithm/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/introduction_to_quantum_algorithms/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/introduction_to_quantum_computing/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_annealing/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_approximate_optimization_algorithm/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_boltzmann_machines/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_circuit_model/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_cloud_computing/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_clustering_algorithms/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_communication/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_computing_applications/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_cryptography/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_development_kits/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_entanglement/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_entropy/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_error_correction/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_fourier_transform/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_gate_model/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_generative_adversarial_networks/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_information_theory/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_machine_learning/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_metrology/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_neural_networks/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_phase_estimation/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_principal_component_analysis/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_programming_languages/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_sensing/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_simulation/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_simulators/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_software_frameworks/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_states_and_qubits/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_superposition/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_support_vector_machines/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/quantum_walks/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/shors_algorithm/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/topological_quantum_computing/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/cheats/variational_quantum_eigensolver/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/projects/projects/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/adiabatic_quantum_computing/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/amplitude_amplification/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/basic_quantum_mechanics/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/grovers_algorithm/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/introduction_to_quantum_algorithms/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/introduction_to_quantum_computing/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/qnas/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_annealing/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_approximate_optimization_algorithm/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_boltzmann_machines/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_circuit_model/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_cloud_computing/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_clustering_algorithms/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_communication/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_computing_applications/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_cryptography/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_development_kits/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_entanglement/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_entropy/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_error_correction/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_fourier_transform/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_gate_model/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_generative_adversarial_networks/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_information_theory/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_machine_learning/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_metrology/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_neural_networks/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_phase_estimation/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_principal_component_analysis/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_programming_languages/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_sensing/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_simulation/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_simulators/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_software_frameworks/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_states_and_qubits/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_superposition/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_support_vector_machines/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/quantum_walks/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/shors_algorithm/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/topological_quantum_computing/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/qnas/variational_quantum_eigensolver/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://learning.teachme.codes/refs/refs/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
