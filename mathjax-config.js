@@ -1,21 +1,10 @@
 window.MathJax = {
   tex: {
     inlineMath: [['$', '$'], ['\\(', '\\)']],
-    displayMath: [['$$', '$$'], ['\\[', '\\]']],
-    processEscapes: true,
-    processEnvironments: true
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
   },
   options: {
     skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-    processHtmlClass: 'arithmatex',  // Only process elements with the "arithmatex" class
-    ignoreHtmlClass: ".*|",
-    processHtmlClass: "arithmatex"
+    processHtmlClass: 'arithmatex'  // Only process elements with the "arithmatex" class
   }
 };
-
-document$.subscribe(() => { 
-  MathJax.startup.output.clearCache()
-  MathJax.typesetClear()
-  MathJax.texReset()
-  MathJax.typesetPromise()
-})

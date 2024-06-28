@@ -1,7 +1,5 @@
-site_name: Learning Quantum Computing
-site_description: A comprehensive guide to learning Quantum Computing
-
-
+site_name: Learning Quantum Computing 
+site_description: A comprehensive guide to learning quantum computing and quantum algorithms.
 site_author: Teach Me Codes
 site_url: https://learning.teachme.codes
 site_language: en
@@ -9,8 +7,11 @@ site_language: en
 repo_url: https://github.com/teach-me-codes/quantum-computing
 
 extra_javascript:
-  - mathjax-config.js
+  - static/mathjax-config.js
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js
+
+extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css
 
 
 
@@ -57,7 +58,6 @@ markdown_extensions:
           case: lower
   - pymdownx.tasklist:
       custom_checkbox: true
-  
   - codehilite:
       linenums: false
       guess_lang: false
@@ -65,8 +65,7 @@ markdown_extensions:
       noclasses: true
       pygments_style: manni
 
-
-
+  
 
   
 theme:
@@ -81,7 +80,7 @@ theme:
   sticky_navigation: true
   collapse_navigation: true
   logo: assets/logo.png
-  favicon: assets/logo.png
+  favicon: assets/fevicon.ico
   features:
     - announce.dismiss
     - content.action.edit
@@ -101,7 +100,7 @@ theme:
     # - navigation.instant.progress
     # - navigation.prune
     - navigation.sections
-    # - navigation.tabs
+    - navigation.tabs
     # - navigation.tabs.sticky
     - navigation.top
     - navigation.tracking
@@ -140,10 +139,7 @@ theme:
     - minify:
         minify_html: true
   
-   
- 
-#extra_css:
-#  - extra.css
+
 
 
 extra:
@@ -185,48 +181,135 @@ extra:
 
 
 
-
-
-
 nav:
 - Home: index.md
-- Introduction to Quantum Computing: introduction_to_quantum_computing.md
-- Basic Quantum Mechanics: basic_quantum_mechanics.md
-- Quantum States and Qubits: quantum_states_and_qubits.md
-- Quantum Entanglement: quantum_entanglement.md
-- Quantum Superposition: quantum_superposition.md
-- Introduction to Quantum Algorithms: introduction_to_quantum_algorithms.md
-- Shor's Algorithm: shors_algorithm.md
-- Grover's Algorithm: grovers_algorithm.md
-- Quantum Fourier Transform: quantum_fourier_transform.md
-- Quantum Simulation: quantum_simulation.md
-- Quantum Machine Learning: quantum_machine_learning.md
-- Quantum Annealing: quantum_annealing.md
-- Variational Quantum Eigensolver: variational_quantum_eigensolver.md
-- Quantum Approximate Optimization Algorithm (QAOA): quantum_approximate_optimization_algorithm.md
-- Quantum Phase Estimation: quantum_phase_estimation.md
-- Amplitude Amplification: amplitude_amplification.md
-- Quantum Walks: quantum_walks.md
-- Quantum Neural Networks: quantum_neural_networks.md
-- Quantum Support Vector Machines: quantum_support_vector_machines.md
-- Quantum Generative Adversarial Networks: quantum_generative_adversarial_networks.md
-- Quantum Boltzmann Machines: quantum_boltzmann_machines.md
-- Quantum Clustering Algorithms: quantum_clustering_algorithms.md
-- Quantum Principal Component Analysis: quantum_principal_component_analysis.md
-- Quantum Gate Model: quantum_gate_model.md
-- Quantum Circuit Model: quantum_circuit_model.md
-- Adiabatic Quantum Computing: adiabatic_quantum_computing.md
-- Topological Quantum Computing: topological_quantum_computing.md
-- Quantum Information Theory: quantum_information_theory.md
-- Quantum Cryptography: quantum_cryptography.md
-- Quantum Error Correction: quantum_error_correction.md
-- Quantum Entropy: quantum_entropy.md
-- Quantum Computing Applications: quantum_computing_applications.md
-- Quantum Communication: quantum_communication.md
-- Quantum Sensing: quantum_sensing.md
-- Quantum Metrology: quantum_metrology.md
-- Quantum Programming Languages: quantum_programming_languages.md
-- Quantum Software Frameworks: quantum_software_frameworks.md
-- Quantum Simulators: quantum_simulators.md
-- Quantum Cloud Computing: quantum_cloud_computing.md
-- Quantum Development Kits: quantum_development_kits.md
+- Book Chapters:
+  - Book Chapters: chapters/chapters.md
+  - Introduction to Quantum Computing: chapters/introduction_to_quantum_computing.md
+  - Basic Quantum Mechanics: chapters/basic_quantum_mechanics.md
+  - Quantum States and Qubits: chapters/quantum_states_and_qubits.md
+  - Quantum Superposition: chapters/quantum_superposition.md
+  - Quantum Entanglement: chapters/quantum_entanglement.md
+  - Quantum Gate Model: chapters/quantum_gate_model.md
+  - Quantum Circuit Model: chapters/quantum_circuit_model.md
+  - Adiabatic Quantum Computing: chapters/adiabatic_quantum_computing.md
+  - Topological Quantum Computing: chapters/topological_quantum_computing.md
+  - Introduction to Quantum Algorithms: chapters/introduction_to_quantum_algorithms.md
+  - Quantum Fourier Transform: chapters/quantum_fourier_transform.md
+  - Shor's Algorithm: chapters/shors_algorithm.md
+  - Grover's Algorithm: chapters/grovers_algorithm.md
+  - Quantum Phase Estimation: chapters/quantum_phase_estimation.md
+  - Quantum Simulation: chapters/quantum_simulation.md
+  - Quantum Annealing: chapters/quantum_annealing.md
+  - Variational Quantum Eigensolver: chapters/variational_quantum_eigensolver.md
+  - Quantum Approximate Optimization Algorithm: chapters/quantum_approximate_optimization_algorithm.md
+  - Amplitude Amplification: chapters/amplitude_amplification.md
+  - Quantum Walks: chapters/quantum_walks.md
+  - Quantum Machine Learning: chapters/quantum_machine_learning.md
+  - Quantum Neural Networks: chapters/quantum_neural_networks.md
+  - Quantum Support Vector Machines: chapters/quantum_support_vector_machines.md
+  - Quantum Generative Adversarial Networks: chapters/quantum_generative_adversarial_networks.md
+  - Quantum Boltzmann Machines: chapters/quantum_boltzmann_machines.md
+  - Quantum Clustering Algorithms: chapters/quantum_clustering_algorithms.md
+  - Quantum Principal Component Analysis: chapters/quantum_principal_component_analysis.md
+  - Quantum Information Theory: chapters/quantum_information_theory.md
+  - Quantum Cryptography: chapters/quantum_cryptography.md
+  - Quantum Error Correction: chapters/quantum_error_correction.md
+  - Quantum Entropy: chapters/quantum_entropy.md
+  - Quantum Computing Applications: chapters/quantum_computing_applications.md
+  - Quantum Communication: chapters/quantum_communication.md
+  - Quantum Sensing: chapters/quantum_sensing.md
+  - Quantum Metrology: chapters/quantum_metrology.md
+  - Quantum Programming Languages: chapters/quantum_programming_languages.md
+  - Quantum Software Frameworks: chapters/quantum_software_frameworks.md
+  - Quantum Simulators: chapters/quantum_simulators.md
+  - Quantum Cloud Computing: chapters/quantum_cloud_computing.md
+  - Quantum Development Kits: chapters/quantum_development_kits.md
+- Questions & Answers:
+  - Questions & Answers: qnas/qnas.md
+  - Introduction to Quantum Computing: qnas/introduction_to_quantum_computing.md
+  - Basic Quantum Mechanics: qnas/basic_quantum_mechanics.md
+  - Quantum States and Qubits: qnas/quantum_states_and_qubits.md
+  - Quantum Superposition: qnas/quantum_superposition.md
+  - Quantum Entanglement: qnas/quantum_entanglement.md
+  - Quantum Gate Model: qnas/quantum_gate_model.md
+  - Quantum Circuit Model: qnas/quantum_circuit_model.md
+  - Adiabatic Quantum Computing: qnas/adiabatic_quantum_computing.md
+  - Topological Quantum Computing: qnas/topological_quantum_computing.md
+  - Introduction to Quantum Algorithms: qnas/introduction_to_quantum_algorithms.md
+  - Quantum Fourier Transform: qnas/quantum_fourier_transform.md
+  - Shor's Algorithm: qnas/shors_algorithm.md
+  - Grover's Algorithm: qnas/grovers_algorithm.md
+  - Quantum Phase Estimation: qnas/quantum_phase_estimation.md
+  - Quantum Simulation: qnas/quantum_simulation.md
+  - Quantum Annealing: qnas/quantum_annealing.md
+  - Variational Quantum Eigensolver: qnas/variational_quantum_eigensolver.md
+  - Quantum Approximate Optimization Algorithm: qnas/quantum_approximate_optimization_algorithm.md
+  - Amplitude Amplification: qnas/amplitude_amplification.md
+  - Quantum Walks: qnas/quantum_walks.md
+  - Quantum Machine Learning: qnas/quantum_machine_learning.md
+  - Quantum Neural Networks: qnas/quantum_neural_networks.md
+  - Quantum Support Vector Machines: qnas/quantum_support_vector_machines.md
+  - Quantum Generative Adversarial Networks: qnas/quantum_generative_adversarial_networks.md
+  - Quantum Boltzmann Machines: qnas/quantum_boltzmann_machines.md
+  - Quantum Clustering Algorithms: qnas/quantum_clustering_algorithms.md
+  - Quantum Principal Component Analysis: qnas/quantum_principal_component_analysis.md
+  - Quantum Information Theory: qnas/quantum_information_theory.md
+  - Quantum Cryptography: qnas/quantum_cryptography.md
+  - Quantum Error Correction: qnas/quantum_error_correction.md
+  - Quantum Entropy: qnas/quantum_entropy.md
+  - Quantum Computing Applications: qnas/quantum_computing_applications.md
+  - Quantum Communication: qnas/quantum_communication.md
+  - Quantum Sensing: qnas/quantum_sensing.md
+  - Quantum Metrology: qnas/quantum_metrology.md
+  - Quantum Programming Languages: qnas/quantum_programming_languages.md
+  - Quantum Software Frameworks: qnas/quantum_software_frameworks.md
+  - Quantum Simulators: qnas/quantum_simulators.md
+  - Quantum Cloud Computing: qnas/quantum_cloud_computing.md
+  - Quantum Development Kits: qnas/quantum_development_kits.md
+- Cheat Sheets:
+  - Cheat Sheets: cheats/cheats.md
+  - Introduction to Quantum Computing: cheats/introduction_to_quantum_computing.md
+  - Basic Quantum Mechanics: cheats/basic_quantum_mechanics.md
+  - Quantum States and Qubits: cheats/quantum_states_and_qubits.md
+  - Quantum Superposition: cheats/quantum_superposition.md
+  - Quantum Entanglement: cheats/quantum_entanglement.md
+  - Quantum Gate Model: cheats/quantum_gate_model.md
+  - Quantum Circuit Model: cheats/quantum_circuit_model.md
+  - Adiabatic Quantum Computing: cheats/adiabatic_quantum_computing.md
+  - Topological Quantum Computing: cheats/topological_quantum_computing.md
+  - Introduction to Quantum Algorithms: cheats/introduction_to_quantum_algorithms.md
+  - Quantum Fourier Transform: cheats/quantum_fourier_transform.md
+  - Shor's Algorithm: cheats/shors_algorithm.md
+  - Grover's Algorithm: cheats/grovers_algorithm.md
+  - Quantum Phase Estimation: cheats/quantum_phase_estimation.md
+  - Quantum Simulation: cheats/quantum_simulation.md
+  - Quantum Annealing: cheats/quantum_annealing.md
+  - Variational Quantum Eigensolver: cheats/variational_quantum_eigensolver.md
+  - Quantum Approximate Optimization Algorithm: cheats/quantum_approximate_optimization_algorithm.md
+  - Amplitude Amplification: cheats/amplitude_amplification.md
+  - Quantum Walks: cheats/quantum_walks.md
+  - Quantum Machine Learning: cheats/quantum_machine_learning.md
+  - Quantum Neural Networks: cheats/quantum_neural_networks.md
+  - Quantum Support Vector Machines: cheats/quantum_support_vector_machines.md
+  - Quantum Generative Adversarial Networks: cheats/quantum_generative_adversarial_networks.md
+  - Quantum Boltzmann Machines: cheats/quantum_boltzmann_machines.md
+  - Quantum Clustering Algorithms: cheats/quantum_clustering_algorithms.md
+  - Quantum Principal Component Analysis: cheats/quantum_principal_component_analysis.md
+  - Quantum Information Theory: cheats/quantum_information_theory.md
+  - Quantum Cryptography: cheats/quantum_cryptography.md
+  - Quantum Error Correction: cheats/quantum_error_correction.md
+  - Quantum Entropy: cheats/quantum_entropy.md
+  - Quantum Computing Applications: cheats/quantum_computing_applications.md
+  - Quantum Communication: cheats/quantum_communication.md
+  - Quantum Sensing: cheats/quantum_sensing.md
+  - Quantum Metrology: cheats/quantum_metrology.md
+  - Quantum Programming Languages: cheats/quantum_programming_languages.md
+  - Quantum Software Frameworks: cheats/quantum_software_frameworks.md
+  - Quantum Simulators: cheats/quantum_simulators.md
+  - Quantum Cloud Computing: cheats/quantum_cloud_computing.md
+  - Quantum Development Kits: cheats/quantum_development_kits.md
+- Projects:
+  - Projects: projects/projects.md
+- References:
+  - References: refs/refs.md
